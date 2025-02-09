@@ -1,0 +1,25 @@
+{
+    "name": "turker/executor",
+    "description": "A lightweight database query builder and ORM",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mustafaturker1"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "TurkerExecutor\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TurkerExecutor\\Tests\\": "Tests/"
+        }
+    }
+} 
