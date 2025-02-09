@@ -4,12 +4,16 @@ namespace TurkerExecutor\Tests\Models;
 
 use TurkerExecutor\Model\Model;
 use TurkerExecutor\Query\QueryBuilder;
+use TurkerExecutor\Relations\BelongsTo;
 
 class PlayerModel extends Model
 {
     protected string $table = 'players';
-    
-    public function team()
+
+    /**
+     * @return BelongsTo
+     */
+    public function team(): BelongsTo
     {
         return $this->belongsTo(TeamModel::class, 'team_id');
     }

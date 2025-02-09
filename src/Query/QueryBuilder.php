@@ -84,6 +84,7 @@ class QueryBuilder
         return array_map(function ($attributes) {
             $model = clone $this->model;
             $model->fill((array) $attributes);
+            $model->exists = true;
             return $model;
         }, $results);
     }
