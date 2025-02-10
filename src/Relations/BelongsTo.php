@@ -15,11 +15,16 @@ class BelongsTo extends Relation
 
     protected function addConstraints(): void
     {
-        $this->query->where($this->related->getKeyName(), '=', $this->parent->getAttribute($this->foreignKey));
+        $this->query->where(
+            $this->related->getKeyName(),
+            '=',
+            $this->parent->getAttribute($this->foreignKey)
+        );
     }
 
     public function get(): ?Model
     {
+        $this->addConstraints();
         return $this->query->first();
     }
 
