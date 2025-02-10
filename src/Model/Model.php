@@ -205,6 +205,11 @@ abstract class Model
         return (new QueryBuilder(new static))->whereIn($column, $values);
     }
 
+    public static function orderBy(string $column, string $direction = 'asc'): QueryBuilder
+    {
+        return (new QueryBuilder(new static))->orderBy($column, $direction);
+    }
+
     public static function first(): ?static
     {
         return (new QueryBuilder(new static))->first();
