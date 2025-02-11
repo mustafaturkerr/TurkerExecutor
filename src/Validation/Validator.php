@@ -6,6 +6,7 @@ class Validator
 {
     private array $rules = [];
     private array $errors = [];
+    private array $data = [];
 
     public function addRule(string $field, string $rule, callable $validator): void
     {
@@ -15,7 +16,7 @@ class Validator
     public function validate(array $data): bool
     {
         $this->errors = [];
-
+        $this->data = $data;
         foreach ($this->rules as $field => $fieldRules) {
             foreach ($fieldRules as $rule => $validator) {
                 if (!isset($data[$field])) {
@@ -30,6 +31,11 @@ class Validator
         }
 
         return empty($this->errors);
+    }
+
+    public function getData(): array
+    {
+        return $this->data;
     }
 
     public function getErrors(): array
